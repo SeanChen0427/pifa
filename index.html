@@ -39,6 +39,7 @@
 <button onclick="calculateTotal()">計算總金額並轉換為台幣</button>
 
 <h3 id="result">總金額：0 韓元，轉換後為 0 台幣（包含關稅與代購費）</h3>
+<h3 id="salePrice">預計販售價格：0 台幣</h3>
 
 <script>
 function calculateTotal() {
@@ -62,8 +63,12 @@ function calculateTotal() {
     // 轉換為台幣金額
     const totalTwd = finalKrwAmount * exchangeRate + taxCost;
 
+    // 計算預計販售價格
+    const salePrice = totalTwd * 1.5;
+
     // 顯示結果
     document.getElementById('result').textContent = `總金額：${finalKrwAmount.toFixed(2)} 韓元，轉換後為 ${totalTwd.toFixed(2)} 台幣（包含關稅與代購費）`;
+    document.getElementById('salePrice').textContent = `預計販售價格：${salePrice.toFixed(2)} 台幣`;
 }
 </script>
 
